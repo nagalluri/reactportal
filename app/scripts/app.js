@@ -15,14 +15,14 @@ var data = [
 var CardTable = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
-      if(comment.status=="Active") {
+      if(comment.status=="active") {
         return (            
           <div className="active">
             <Card name={comment.name} budget={comment.budget} status={comment.status}>
             </Card>
           </div>
         );
-      } else if(comment.status=="Expired") {
+      } else if(comment.status=="expired") {
         return (            
           <div className="expired">
             <Card name={comment.name} budget={comment.budget} status={comment.status}>
@@ -46,11 +46,11 @@ var CardTable = React.createClass({
       }
 });
 
-var TodoApp = React.createClass({
+var CardView = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
-      url: this.props.url,
-      dataType: 'jsonp',
+      url: this.props.source,
+      dataType: 'json',
       cache: false,
       success: function(data) {
         this.setState({data: data});
@@ -87,5 +87,5 @@ var TodoApp = React.createClass({
 });
 
 
-ReactDOM.render(<TodoApp url="/api/v1/adminportal/campaigns/" pollInterval={2000} />, document.getElementById('content'));
+ReactDOM.render(<CardView source="http://68.140.240.107:3000/api/v1/adminportal/campaigns/" pollInterval={2000} />, document.getElementById('content'));
 
