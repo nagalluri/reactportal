@@ -67,9 +67,6 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
 
     /* Remove the padding we set earlier */
     .header,
@@ -113,10 +110,6 @@ body {
         overflow: hidden;
     }
 
-    .marketing {
-        padding-left: 50px;
-    }
-
     .CardTable > div {
         float: left;
         width: 200px;
@@ -133,6 +126,60 @@ body {
         .ReactFlipCard__Front, .ReactFlipCard__Back {
             background-color: #FFC300;
         }
+    }
+
+    .BoxView {
+        padding-left: 90px;
+    }
+
+    .ListView {
+        margin: 10px;
+    }
+
+    .tabs {
+      margin-top: -50px;
+    }
+
+    .tabs-navigation {
+      padding: 0 50px;
+    }
+
+    .tabs-navigation {
+      padding: 0 20px;
+      max-height: 50px;
+      border-bottom: 1px solid #DDD;
+    }
+
+    .tabs-menu {
+      display: table;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tabs-menu-item {
+      float: left;
+    }
+
+    .tabs-menu-item a {
+      display: block;
+      padding: 0 40px;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 0;
+      color: #A9A9A9;
+    }
+
+    .tabs-menu-item:not(.is-active) a:hover {
+      color: #3498db;
+    }
+
+    .tabs-menu-item.is-active a {
+      background: #fff;
+      border: 1px solid #DDD;
+      border-top: 2px solid #3498db;
+      border-bottom: 0;
+      color: #333;
     }
 }
 
