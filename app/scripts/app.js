@@ -14,15 +14,6 @@ var React = window.React = require('react'),
     List = require("./List"),
     mountNode = document.getElementById("app");
 
-var DATA = [
-  {name: "card1", budget: "1", status: "Expired"},
-  {name: "card2", budget: "100", status: "Expired"},
-  {name: "card3", budget: "1000", status: "Suspended"},
-  {name: "card4", budget: "10", status: "Active"}
-];
-
-var Clicked = true;
-
 var CardTable = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
@@ -57,51 +48,6 @@ var CardTable = React.createClass({
       }
 });
 
-var BoxButton = React.createClass({
-  getInitialState() {
-    return {
-      Clicked: false
-    };
-  },  
-  render: function() {
-    return (
-      <Button>Change View</Button>
-    );
-  },
-  handleClick() {
-    this.setState({Clicked: true});
-    console.log(Clicked);
-  }
-});
-
-var PaginationAdvanced = React.createClass({
-  getInitialState() {
-    return {
-      activePage: 1
-    };
-  },
-
-  handleSelect(eventKey) {
-    this.setState({
-      activePage: eventKey
-    });
-  },
-
-  render() {
-    return (
-      <Pagination
-        prev
-        next
-        first
-        last
-        items={20}
-        maxButtons={3}
-        activePage={this.state.activePage}
-        onSelect={this.handleSelect} />
-    );
-  }
-});
-
 var BoxView = React.createClass({
   loadCommentsFromServer: function() {
     console.log(this.props.activePage)
@@ -134,17 +80,19 @@ var BoxView = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <Pagination
-          prev
-          next
-          first
-          last
-          items={20}
-          maxButtons={3}
-          activePage={this.state.activePage}
-          onSelect={this.handleSelect} />
+      <div className="boxgrid">
         <CardTable data={this.state.data} />
+        <div className="pager">
+          <Pagination
+            prev
+            next
+            first
+            last
+            items={20}
+            maxButtons={3}
+            activePage={this.state.activePage}
+            onSelect={this.handleSelect} /> 
+        </div>
       </div>
     )
   }

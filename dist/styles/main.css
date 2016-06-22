@@ -7371,6 +7371,10 @@ body {
     color: white;
   }
 
+  .boxgrid {
+    padding-left: 250px;
+  }
+
   .content {
     overflow: hidden;
   }
@@ -7383,6 +7387,10 @@ body {
 
   .active .ReactFlipCard__Front, .active .ReactFlipCard__Back {
     background-color: #0BCD04;
+  }
+
+  .expired .ReactFlipCard__Front, .expired .ReactFlipCard__Back {
+    background-color: #CD040B;
   }
 
   .other .ReactFlipCard__Front, .other .ReactFlipCard__Back {
